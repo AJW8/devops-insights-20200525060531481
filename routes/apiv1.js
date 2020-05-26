@@ -71,12 +71,12 @@ exports.getWeather2 = function(req, res) {
 router.get('/getWeather2', exports.getWeather2);
 */
 exports.getWeather3 = function(req, res) {
-	var zip = req.query.q;
+	var zip = req.query.zip;
 	if( (zip === null) || (typeof(zip) === 'undefined') ) {
 		return res.status(400).send('zip missing');
 	}
 
-	var aurl = OPENWEATHERURL + '&q=' + zip + ',nz';
+	var aurl = OPENWEATHERURL + '&zip=' + zip + ',us';
 
 	request({
 		method: 'GET',
