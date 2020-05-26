@@ -20,10 +20,10 @@ function ZipResponse(props) {
             <div className="col-sm-8">
                 <table className="table table-info table-hover">
                     <tbody>
-                        /*<tr>
+                        <tr>
                             <td>City</td>
                             <td>{props.responseData.name}</td>
-                        </tr>*/
+                        </tr>
                         <tr>
                             <td>Temperature</td>
                             <td>{props.responseData.main.temp}</td>
