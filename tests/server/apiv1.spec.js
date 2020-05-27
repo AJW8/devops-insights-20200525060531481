@@ -38,7 +38,7 @@ describe('Get Weather', function() {
   it('with valid zip code and error from request call', function() {
     reqMock = {
       query: {
-        zip: 'El Paso'
+        zip: 'Hamilton'
       }
     };
 
@@ -57,7 +57,7 @@ describe('Get Weather', function() {
   it('with incomplete zip code', function() {
     reqMock = {
       query: {
-        zip: 'El Paso'
+        zip: 'Hamilton'
       }
     };
 
@@ -76,13 +76,13 @@ describe('Get Weather', function() {
   it('with valid zip code', function() {
     reqMock = {
       query: {
-        zip: 'El Paso'
+        zip: 'Hamilton'
       }
     };
 
     const body = {
       cod: 200,
-      name: 'El Paso',
+      name: 'Hamilton',
       weather: [
         {
           main: 'cold'
