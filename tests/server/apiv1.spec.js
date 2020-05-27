@@ -73,5 +73,36 @@ describe('Get Weather', function() {
     assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
   });
 
-  
+  it('with valid zip code', function() {
+    reqMock = {
+      query: {
+        zip: 'El Paso'
+      }
+    };
+
+    const body = {
+      cod: 200,
+      name: 'El Paso',
+      weather: [
+        {
+          main: 'cold'
+        }
+      ],
+      main: {
+        temp: 78
+      }
+    };
+
+    const request = function( obj, callback ){
+      callback(null, null, body);
+    };
+
+    apiv1.__set__("request", request);
+
+    apiv1.getWeather(reqMock, resMock);
+
+    assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
+    assert(resMock.send.lastCall.args[0].city === 'El Paso', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
+    assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 78 F', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
+  });
 });
